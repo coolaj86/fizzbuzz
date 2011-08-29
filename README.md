@@ -3,6 +3,11 @@ FizzBuzz
 
 An array of the usual suspects.
 
+C
+----
+
+  * stack
+
 C++
 ----
 
@@ -22,3 +27,4 @@ JavaScript
   * Hello World
   * Fizzbuzz
   * Fibonacci
+  * HTTP Chat Server / Client (json-chat)
