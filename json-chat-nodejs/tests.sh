@@ -3,7 +3,7 @@
 HOST=localhost:5080
 
 # immediatley adds a message to RoomA
-curl --silent "http://${HOST}/RoomA" \
+curl --silent http://${HOST}/RoomA \
   -X POST \
   -H 'Content-Type: application/json' \
   -d '{ 
@@ -16,7 +16,7 @@ curl --silent "http://${HOST}/RoomA" \
 
 
 # immediatley adds a message to RoomB
-curl --silent "http://${HOST}/RoomB" \
+curl --silent http://${HOST}/RoomB \
   -X POST \
   -H 'Content-Type: application/json' \
   -d '{ 
@@ -28,9 +28,9 @@ curl --silent "http://${HOST}/RoomB" \
 
 # waits 10 seconds before responding with the latest messages
 # should get the message
-let WHEN=`date +%s`000-10000 # 10 seconds ago
-let THEN=`date +%s`000+10000 # 10 seconds from now
-curl --silent "http://${HOST}/RoomA?since=${WHEN}&until=${THEN}" \
+let BEFORE=`date +%s`000-10000 # 10 seconds ago
+let AFTER=`date +%s`000+10000 # 10 seconds from now
+curl --silent http://${HOST}/RoomA?since=${BEFORE}&until=${AFTER} \
   -X POST \
   -H 'Content-Type: application/json' \
   -d '{ 
@@ -48,7 +48,7 @@ curl --silent "http://${HOST}/RoomA?since=${WHEN}&until=${THEN}" \
 
 # this should post to RoomA and be seen in the request above
 sleep 5
-curl --silent "http://${HOST}/RoomA" \
+curl --silent http://${HOST}/RoomA \
   -X POST \
   -H 'Content-Type: application/json' \
   -d '{ 
