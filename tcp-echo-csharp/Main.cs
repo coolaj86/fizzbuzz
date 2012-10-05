@@ -1,4 +1,4 @@
-// http://msdn.microsoft.com/en-us/library/fx6588te(v=vs.80).aspx 
+// Taken (mostly) from http://msdn.microsoft.com/en-us/library/fx6588te(v=vs.80).aspx 
 using System;
 using System.Net;
 using System.Net.Sockets;
